@@ -1,0 +1,21 @@
+<title>
+  Погода
+</title>
+
+{% block body %}
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="text" placeholder="Введите город" name="city" required> <br>
+  <input type="submit" value="Узнать погоду">
+</form>
+<div>
+  {% if history %}
+    {% for key in history %}
+      <a href="{% url 'weather_app:get_weather_in_city' city=key %}">{{ key }}</a> <br>
+
+    {% endfor %}
+  {% else %}
+    <p> Истории запросов нет</p>
+  {% endif %}
+</div>
+{% endblock %}

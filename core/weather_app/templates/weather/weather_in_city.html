@@ -1,0 +1,27 @@
+{% extends 'weather/base.html' %}
+
+{% block title %}
+  Погода в {{ city }}
+{% endblock %}
+
+{% block body %}
+<h2> Погода на текущий момент</h2>
+<p>
+  Температура: {{ weather.temperature }}
+</p>
+<p>
+  Влажность воздуха: {{ weather.humidity }}
+</p>
+<p>
+  Скорость ветра: {{ weather.wind_speed }}
+</p>
+<p>
+  Максимальная температура днем: {{ weather.daily_temp_max }}
+</p>
+<p>
+  Минимальная температура днем: {{ weather.daily_temp_min }}
+</p>
+<p>
+  Осадки: {{ weather.daily_rain_sum }}
+</p>
+{% endblock %}
